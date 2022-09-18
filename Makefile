@@ -1,11 +1,11 @@
 NAME	= minishell
 CC		= cc 
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -lreadline
+CFLAGS	=  -lreadline
 
 HEADER	= minishell.h
 
-SRC		= main.c
+SRC		= main.c ft_strdup.c
 
 all: $(NAME)
 $(NAME): $(SRC)

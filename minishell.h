@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/18 17:37:07 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:09:53 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct node
 }t_list;
 
 t_list *ft_splitter(char *line);
+char	*ft_strdup(char *src);
 t_list	*ft_lst_new(char *val);
 
 #endif

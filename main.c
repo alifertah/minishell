@@ -6,16 +6,28 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/18 18:09:16 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:54:48 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minishell.h"
 
-int main(int ac, char **av)
+int main(int ac, char **av, char **env)
 {
     (void)ac;
+    int y  = 0;
+    int x =0;
+    char **envi = malloc(sizeof(env));
+    
+    
+    while(env[x])
+    {
+        envi[x] = ft_strdup(env[y]);
+        y++;
+        x++;
+    }
+    x=0;
     int j  = 1;
     while(av[j])
     {
@@ -50,6 +62,36 @@ int main(int ac, char **av)
             }
             else
                 printf("\n");
+        }
+        if(!(strcmp(av[j], "unset")))
+        {
+            char **tmp = (char **)malloc(sizeof(char*) * 100);
+            int k = 0;
+            if(av[j+1])
+            {
+                y = 0;
+                while(envi[y])
+                {
+                    if(!strncmp(av[j+1], envi[y], strlen(av[j+1])))
+                    {
+                        while (envi[y+1])
+                        {
+                            envi[y] = envi[y+1];
+                            y++;
+                        }
+                        break;
+                    }
+                    y++;
+                }
+                int s=0;
+                while(envi[s])
+                {
+                    printf("%s\n", envi[s]);
+                    s++;
+                }
+            }
+            else
+                return 0;
         }
         j++;
     }
