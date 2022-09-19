@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 19:03:10 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/19 20:45:00 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int main(int ac, char **av, char **env)
     
     while(env[x])
     {
-        envi[x] = malloc(sizeof(env[y]));
         envi[x] = ft_strdup(env[y]);
         y++;
         x++;
     }
+    envi[x] = NULL;
     x=0;
     int j  = 1;
     while(av[j])
@@ -71,25 +71,34 @@ int main(int ac, char **av, char **env)
             {
                 while(envi[y])
                 {
-                    // if(!strncmp(av[j+1], envi[y], strlen(av[j+1])))
-                    // {
-                    //     while(envi[y])
-                    //     {
-                    //         if(envi[y+1])
-                    //             envi[y]=envi[y+1];
-                    //         else 
-                    //             break;
-                    //         y++;
-                    //     }
-                    // }
-                    printf("%s\n", envi[y]);
+                    if(!strncmp(av[j+1], envi[y], strlen(av[j+1])))
+                    {
+                        while(envi[y])
+                        {
+                            if(envi[y+1])
+                                envi[y]=envi[y+1];
+                            else 
+                                break;
+                            y++;
+                        }
+                        envi[y] =NULL;
+                    }
                     y++;
                 }
-                // for(int i=0;envi[i];i++)
-                //     printf("{%s}\n", envi[i]);
+                for(int i=0;envi[i];i++)
+                    printf("{%s}\n", envi[i]);
             }
             else
                 return 0;
+        }
+        if(!(strcmp(av[j], "env")))
+        {
+            for(int i =0;envi[i]; i++)
+                printf("%s\n", envi[i]);
+        }
+        if(!(strcmp(av[j], "env")))
+        {
+            
         }
         j++;
     }
