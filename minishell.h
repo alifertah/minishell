@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:36:18 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/19 22:49:59 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct node
 char	*ft_strdup(char *src);
 void    ft_execute(char **cmd);
 void    ft_pwd();
-void    ft_cd(char *cmd, int i);
-
+void    ft_cd(char **cmd, int i);
+void    ft_echo(char **cmd, int i);
 
 #endif

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/18 17:51:06 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:46:12 by alfertah         ###   ########.fr       */
+/*   Created: 2022/09/19 22:47:21 by alfertah          #+#    #+#             */
+/*   Updated: 2022/09/19 22:50:12 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_cd(char **cmd, int i)
+void    ft_echo(char **cmd, int i)
 {
-    
-            if(cmd[i+1])
+    if(cmd[i+1])
             {
-                chdir(cmd[i+1]);
-                printf("%s\n", getcwd(NULL, 0));
-                exit(0);
+                if(!strcmp(cmd[i+1], "-n"))
+                {
+                    if(cmd[i + 2])
+                        printf("%s", cmd[i+2]);
+                    else
+                        exit (0);
+                }
+                else
+                    printf("%s\n", cmd[i+1]) ;
             }
             else
-            {
-                chdir(getenv("HOME"));
-                printf("%s\n", getcwd(NULL, 0));
-            }
+                printf("\n");
 }

@@ -5,7 +5,7 @@ CFLAGS	= -W
 
 HEADER	= minishell.h
 
-SRC		= main.c ft_strdup.c pwd.c exec.c cd.c
+SRC		= main.c ft_strdup.c pwd.c exec.c cd.c echo.c
 
 all: $(NAME)
 $(NAME): $(SRC)

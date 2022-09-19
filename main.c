@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:41:36 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/19 22:49:50 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,6 @@ int main(int ac, char **av, char **env)
     while(av[j])
     {
         ft_execute(av);
-        if(!(strcmp(av[j], "echo")))
-        {
-            if(av[j+1])
-            {
-                if(!strcmp(av[j+1], "-n"))
-                {
-                    if(av[j + 2])
-                        printf("%s", av[j+2]);
-                    else
-                        return 0;
-                }
-                else
-                    printf("%s\n", av[j+1]) ;
-            }
-            else
-                printf("\n");
-        }
         y=0;
         if(!(strcmp(av[j], "unset")))
         {
