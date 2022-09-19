@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 20:45:00 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/19 22:41:36 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,7 @@ int main(int ac, char **av, char **env)
     int j  = 1;
     while(av[j])
     {
-        if(!(strcmp(av[j], "pwd")))
-            printf("%s\n", getcwd(NULL, 0));
-        if(!(strcmp(av[j], "cd")))
-        {
-            if(av[j+1])
-            {
-                chdir(av[j+1]);
-                printf("%s", getcwd(NULL, 0));
-            }
-            else
-            {
-                chdir(getenv("HOME"));
-                printf("%s", getcwd(NULL, 0));
-            }
-        }
+        ft_execute(av);
         if(!(strcmp(av[j], "echo")))
         {
             if(av[j+1])
@@ -98,7 +84,19 @@ int main(int ac, char **av, char **env)
         }
         if(!(strcmp(av[j], "env")))
         {
-            
+            int x;
+            x = -1;
+            while(envi[++x])
+                printf("%s\n", envi[x]);
+        }
+        if(!(strcmp(av[j], "export")))
+        {
+            if(av[j + 1])
+            {
+                envi[y] = av[j + 1];
+                y++;
+                envi[y] = NULL;
+            }
         }
         j++;
     }

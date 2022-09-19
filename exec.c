@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/18 17:37:55 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:25:30 by alfertah         ###   ########.fr       */
+/*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
+/*   Updated: 2022/09/19 22:37:00 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_pwd()
+void    ft_execute(char **cmd)
 {
-    printf("%s\n",getcwd(NULL, 0));
+    int i;
+    i = 1;
+    while(cmd[i])
+    {
+    if(!strcmp(cmd[i], "pwd"))
+        ft_pwd();
+    if(!strcmp(cmd[i], "cd"))
+        ft_cd(cmd[i], i);
+    i++;
+    }
+    
 }
