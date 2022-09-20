@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:49:50 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:11:28 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int main(int ac, char **av, char **env)
     (void)ac;
     int y  = 0;
     int x =0;
-    char **envi = malloc(sizeof(env));
-    
-    
+    char **envi = malloc(sizeof(char *) * 100);
     while(env[x])
     {
         envi[x] = ft_strdup(env[y]);
