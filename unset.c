@@ -6,13 +6,13 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:11:11 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 12:13:33 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:42:13 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_unset(char **av, char** env, int i)
+void    ft_unset(char **av, char** env)
 {
     int y;
     int j;

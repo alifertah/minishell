@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 16:24:22 by alfertah         ###   ########.fr       */
+/*   Created: 2022/09/21 14:21:37 by alfertah          #+#    #+#             */
+/*   Updated: 2022/09/21 16:26:43 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minishell.h"
-int main(int ac, char **av, char **env)
+
+void    ft_export(char **cmd)
 {
-    (void)ac;
-    int y = 0;
-    int x = 0;
-    envp = (char **)malloc(sizeof(char *) * (count_env(env) + 100));
-    while(env[x])
+    int j;
+    
+    j = 0;
+    while(envp[j])
+        j++;
+    if(cmd[2])
     {
-        envp[x] = ft_strdup(env[y]);
-        y++;
-        x++;
+        envp[j] = ft_strdup(cmd[2]);
+        j++;
+        envp[j] = NULL; 
     }
-    envp[x] = NULL;
-        ft_execute(av);
+    for(int i = 0; envp[i]; i++)
+        printf("%s\n", envp[i]);
 }
