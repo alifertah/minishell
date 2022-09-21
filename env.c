@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 11:58:05 by alfertah         ###   ########.fr       */
+/*   Created: 2022/09/21 11:54:15 by alfertah          #+#    #+#             */
+/*   Updated: 2022/09/21 11:55:36 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_execute(char **cmd, char **env)
+void    ft_env(char **env)
 {
     int i;
-    i = 1;
-    while(cmd[i])
+    i = 0;
+    while(env[i])
     {
-        if(!strcmp(cmd[i], "pwd"))
-            ft_pwd();
-        if(!strcmp(cmd[i], "cd"))
-            ft_cd(cmd, i);
-        if(!strcmp(cmd[i], "echo"))
-            ft_echo(cmd, i);
-        if(!strcmp(cmd[i], "unset"))
-            ft_unset(cmd[i], env, i);
-        if(!strcmp(cmd[i], "env"))
-            ft_env(env);
+        printf("%s\n", env[i]);
         i++;
-    }
-    
+    }   
 }
