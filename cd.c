@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:51:06 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 11:41:49 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:50:52 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void    ft_cd(char **cmd, int i)
             if(!strcmp(cmd[i+1], getCurrentDir()))
             {
                 printf("minishell: cd: %s: Not a directory\n", getCurrentDir());
+                exit(0);
+            }
+            if(chdir(cmd[i+1]) == -1)
+            {
+                printf("minishell: cd: %s: No such file or directory\n", cmd[i+1]);
                 exit(0);
             }
             chdir(cmd[i+1]);

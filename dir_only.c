@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:38:47 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 11:39:02 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:44:16 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void *getCurrentDir(void)
 {
     char *currWorkDir, *token;
-    char buffer[100];
     char *directory;
     size_t length;
 
-    currWorkDir = getcwd(buffer, 100 );
+    currWorkDir = getcwd(NULL, 0 );
     token = strrchr(currWorkDir, '/');
 
     if( currWorkDir == NULL ){
