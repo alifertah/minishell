@@ -6,13 +6,13 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/19 22:52:13 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:19:18 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_execute(char **cmd)
+void    ft_execute(char **cmd, char **env)
 {
     int i;
     i = 1;
@@ -23,10 +23,9 @@ void    ft_execute(char **cmd)
         if(!strcmp(cmd[i], "cd"))
             ft_cd(cmd, i);
         if(!strcmp(cmd[i], "echo"))
-        {
             ft_echo(cmd, i);
-            exit(0);
-        }
+        if(!strcmp(cmd[i], "unset"))
+            ft_unset(cmd[i], env, i);
     i++;
     }
     

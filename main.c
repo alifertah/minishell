@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/20 20:11:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:18:30 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
     int j  = 1;
     while(av[j])
     {
-        ft_execute(av);
+        ft_execute(av, envi);
         y=0;
         if(!(strcmp(av[j], "unset")))
         {
