@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 11:55:47 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:12:08 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void    ft_pwd();
 void    ft_cd(char **cmd, int i);
 void    ft_echo(char **cmd, int i);
 void    ft_env(char **env);
-void    ft_unset(char *var, char** env, int i);
+void    ft_unset(char **av, char** env, int i);
 void	*getCurrentDir(void);
 
 #endif
