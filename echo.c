@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:47:21 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/24 17:38:59 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/24 18:42:14 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ int find_only(char *cmd)
 void ft_echo(char **cmd)
 {
     int i;
+    int test;
 
     i = 2;
-    int test = 0;
+    test = 0;
     if(!cmd[2])
+    {
         printf("\n");
+        return ;
+    }
     while(cmd[i])
     {
         if(cmd[i][0] == '-' && i == 2)
@@ -45,10 +49,15 @@ void ft_echo(char **cmd)
                 i++;
             }
         }
-        if(test == 1)
+        //if(test == 1 && cmd[i])
+        if(cmd[i])
             printf("%s ", cmd[i]);
-        else
-            printf("%s\n", cmd[i]);
+        else 
+            break;
+        //else if(test == 0 && cmd[i])
+            //printf("%s ", cmd[i]);
      i++;   
     }
+    if(test == 0 && !cmd[i])
+        printf("\n");
 }
