@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:47:21 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/24 18:42:14 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:17:15 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,10 @@ void ft_echo(char **cmd)
                 i++;
             }
         }
-        //if(test == 1 && cmd[i])
         if(cmd[i])
             printf("%s ", cmd[i]);
         else 
             break;
-        //else if(test == 0 && cmd[i])
-            //printf("%s ", cmd[i]);
      i++;   
     }
     if(test == 0 && !cmd[i])

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/23 18:52:48 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:21:38 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void    ft_env(char **env);
 void    ft_unset(char **av, char** env);
 void	*getCurrentDir(void);
 void    ft_export(char **cmd);
+void    ft_swap(char *s1, char * s2);
 int count_env(char **env);
 
 #endif

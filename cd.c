@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:51:06 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/21 11:50:52 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:50:13 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void    ft_cd(char **cmd, int i)
 {
         if(cmd[i+1])
         {
+            if(!strcmp(cmd[i+1],  "~"))
+                chdir(getenv("HOME"));
             if(!strcmp(cmd[i+1], getCurrentDir()))
             {
                 printf("minishell: cd: %s: Not a directory\n", getCurrentDir());
