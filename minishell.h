@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/25 17:21:38 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:08:09 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <wchar.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -42,6 +42,10 @@ void    ft_unset(char **av, char** env);
 void	*getCurrentDir(void);
 void    ft_export(char **cmd);
 void    ft_swap(char *s1, char * s2);
-int count_env(char **env);
+int 	count_env(char **env);
+char	*ft_strjoin(char const *s1, char const *s2);
+void    exec_ve(char *cmd);
+void    to_lower(char *str);
+char **ft_split(char *str);
 
 #endif

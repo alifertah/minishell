@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:21:37 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/25 17:56:33 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:38:28 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void    ft_export(char **cmd)
     char *tmp;
     tmp = NULL;
     j = count_env(envp);
+    
     if(!cmd[i])
     {
         while(envp[x])
@@ -36,10 +37,10 @@ void    ft_export(char **cmd)
                     envp[x] = envp[l];
                     envp[l] = tmp;
                 }
-                // if(strcmp(envp[x], envp[l]) > 0)
-                //     l++;
-                // if(strcmp(envp[x], envp[l]) == 0)
-                //     printf("{[---->HERE<----]}");
+                if(strcmp(envp[x], envp[l]) < 0 && envp[l+1])
+                    l++;
+                if(strcmp(envp[x], envp[l]) == 0)
+                    break;
                 l++;
             }
             x++;

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/24 16:50:16 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/09/27 02:54:13 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ void    ft_execute(char **cmd)
     i = 1;
     while(cmd[i])
     {
-        if(!strcmp(cmd[i], "pwd"))
+        to_lower(cmd[i]);
+        if(!strcmp(cmd[i], "pwd") || !strcmp(cmd[i], "PWD"))
             ft_pwd();
-        if(!strcmp(cmd[i], "cd"))
+        else if(!strcmp(cmd[i], "cd"))
             ft_cd(cmd, i);
-        if(!strcmp(cmd[i], "echo"))
+        else if(!strcmp(cmd[i], "echo"))
             ft_echo(cmd);
-        if(!strcmp(cmd[i], "unset"))
+        else if(!strcmp(cmd[i], "unset"))
             ft_unset(cmd, envp);
-        if(!strcmp(cmd[i], "env"))
+        else if(!strcmp(cmd[i], "env"))
             ft_env(envp);
-        if(!strcmp(cmd[i], "export"))
+        else if(!strcmp(cmd[i], "export"))
             ft_export(cmd);
+        else
+            exec_ve(cmd[i]);
         i++;
     }
 }
