@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 03:41:35 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/27 17:51:14 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:13:26 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <unistd.h>
 
-char **ft_split(char *str)
+char **ft_split(char *str, char c)
 {
     int x = -1;
     char **new;
@@ -25,12 +25,12 @@ char **ft_split(char *str)
 
     while(str[i])
     {
-        if(str[i] && str[i] != ':')
+        if(str[i] && str[i] != c)
         {
             x++;
             j = 0;
             new[x] = malloc(sizeof(char) * 100);
-            while(str[i] && str[i] != ':')
+            while(str[i] && str[i] != c)
             {
                 new[x][j] = str[i];
                 j++;

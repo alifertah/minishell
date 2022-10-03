@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/27 19:08:09 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:26:39 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void    ft_export(char **cmd);
 void    ft_swap(char *s1, char * s2);
 int 	count_env(char **env);
 char	*ft_strjoin(char const *s1, char const *s2);
-void    exec_ve(char *cmd);
+void    exec_ve(char **cmd);
 void    to_lower(char *str);
-char **ft_split(char *str);
+char 	**ft_split(char *str, char c);
 
 #endif

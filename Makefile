@@ -1,7 +1,7 @@
 NAME	= minishell
 CC		= cc 
 RM		= rm -f
-CFLAGS	= 
+CFLAGS	= -W 
 
 HEADER	= minishell.h
 

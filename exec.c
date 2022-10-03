@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/27 02:54:13 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:26:19 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,21 @@
 
 void    ft_execute(char **cmd)
 {
-    int i;
-    i = 1;
-    while(cmd[i])
-    {
-        to_lower(cmd[i]);
-        if(!strcmp(cmd[i], "pwd") || !strcmp(cmd[i], "PWD"))
+        to_lower(cmd[1]);
+        if(!strcmp(cmd[1], "pwd"))
             ft_pwd();
-        else if(!strcmp(cmd[i], "cd"))
-            ft_cd(cmd, i);
-        else if(!strcmp(cmd[i], "echo"))
+        else if(!strcmp(cmd[1], "cd"))
+            ft_cd(cmd, 1);
+        else if(!strcmp(cmd[1], "echo"))
             ft_echo(cmd);
-        else if(!strcmp(cmd[i], "unset"))
+        else if(!strcmp(cmd[1], "unset"))
             ft_unset(cmd, envp);
-        else if(!strcmp(cmd[i], "env"))
+        else if(!strcmp(cmd[1], "env"))
             ft_env(envp);
-        else if(!strcmp(cmd[i], "export"))
+        else if(!strcmp(cmd[1], "export"))
             ft_export(cmd);
         else
-            exec_ve(cmd[i]);
-        i++;
-    }
+            exec_ve(cmd);
+
+    
 }
