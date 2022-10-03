@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/23 14:52:53 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:22:09 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int main(int ac, char **av, char **env)
         x++;
     }
     envp[x] = NULL;
-    ft_execute(av);
+    if(av && av[1])
+        ft_execute(av);
+    return 0;
 }

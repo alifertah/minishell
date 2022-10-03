@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/03 20:26:19 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:20:08 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,4 @@ void    ft_execute(char **cmd)
             ft_export(cmd);
         else
             exec_ve(cmd);
-
-    
 }
