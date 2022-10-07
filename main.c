@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:50:31 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/07 05:20:47 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/07 05:22:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
     envp[x] = NULL;
     while(1)
     {
-        rdl = readline("\033[0;32mSHILIMENN : ");
+        rdl = readline("\033[0;32mSHILIMENN => ");
         cmd = ft_split(rdl,' ');
         ft_execute(cmd, envp);
         free(rdl);

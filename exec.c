@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:23:12 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/07 05:18:40 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/07 05:26:04 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,9 @@ void    ft_execute(char **cmd, char **envl)
             else if(!strcmp(cmd[0], "echo"))
                 ft_echo(cmd);
             else if(!strcmp(cmd[0], "unset"))
-                ft_unset(cmd, envp);
+                ft_unset(cmd, envl);
             else if(!strcmp(cmd[0], "env"))
-            {
-                
                 ft_env(envl);
-            }
             else if(!strcmp(cmd[0], "export"))
                 ft_export(cmd);
             else
