@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:48:34 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/27 02:50:48 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/06 19:36:21 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void    to_lower(char *str)
 {
     int i;
 
+    if(!str)
+        return;
     i = 0;
     while(str[i])
     {

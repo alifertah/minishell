@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:23:16 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/03 20:26:39 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/07 04:44:31 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct node
 }t_list;
 char  **envp;
 char	*ft_strdup(char *src);
-void    ft_execute(char **cmd);
+void    ft_execute(char **cmd, char **envl);
 void    ft_pwd();
 void    ft_cd(char **cmd, int i);
 void    ft_echo(char **cmd);
@@ -46,6 +46,6 @@ int 	count_env(char **env);
 char	*ft_strjoin(char const *s1, char const *s2);
 void    exec_ve(char **cmd);
 void    to_lower(char *str);
-char 	**ft_split(char *str, char c);
+char			**ft_split(const char *str, char c);
 
 #endif

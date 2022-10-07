@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 22:47:21 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/27 02:32:15 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/06 21:32:23 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void ft_echo(char **cmd)
     int i;
     int test;
 
-    i = 2;
+    i = 1;
     test = 0;
-    if(!cmd[2])
+    if(!cmd[i])
     {
         printf("\n");
         return ;
     }
     while(cmd[i])
     {
-        if(cmd[i][0] == '-' && i == 2)
+        if(cmd[i][0] == '-' && i == 1)
         {
             while (cmd[i])
             {

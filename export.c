@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:21:37 by alfertah          #+#    #+#             */
-/*   Updated: 2022/09/26 17:38:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/07 04:41:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    ft_export(char **cmd)
     int i;
     
     x = 0;
-    i = 2;
+    i = 1;
     char *tmp;
     tmp = NULL;
     j = count_env(envp);
