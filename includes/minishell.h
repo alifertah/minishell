@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/13 00:47:03 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/13 03:59:55 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ void			ft_free_temp(char **s1);
 void			ft_free_childs(t_state *state, int status);
 /*		 EXITTING - END			*/
 
-/*			SIGNALS				*/
+/*			signalS				*/
 void			ft_handle_sigint_parent(int signal);
-/*		 SIGNALS - END			*/
+/*		 signalS - END			*/
 
 /*			PROMPT				*/
 void			ft_prompt(t_state *state);
