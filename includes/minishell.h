@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 18:57:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:47:03 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ char			**ft_split_args(char *s, char c);
 /*		 PROMPT - END			*/
 
 /*				EXECUTION			*/
-void			ft_execute(t_state *state, t_cmd *current_cmd);
-void			ft_execution(t_state *state);
+void			execution(t_state *state, t_cmd *current_cmd);
+void			execute(t_state *state);
 char			*ft_check_path(t_state *state, char **paths, char **cmdarg);
 char			*ft_check_relative(t_state *state, char *cmd);
 void			ft_pipe_it(t_state *state, t_cmd *current_cmd, int i);
@@ -152,7 +152,7 @@ char			*ft_token_to_str(char *tokenized_str);
 char			*ft_put_exitcode(t_state *state, char *str);
 char			*ft_expand_str(t_state *state, char *old_str);
 char			*ft_add_expanded_env(t_state *state, char *new_str,
-					char *old_str, unsigned int *i);
+						char *old_str, unsigned int *i);
 char			*ft_get_next_token(char *str, char *tmp, unsigned int *i);
 char			ft_token_to_char(char token);
 int				ft_token(char *line);

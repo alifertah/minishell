@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:24:23 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 19:04:47 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/12 22:40:25 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_chdir(t_state *state, char *dir_name)
 
 	tmp = NULL;
 	tmp = get_pwd(tmp);
-	if ((ft_strcmp(dir_name, ".") || !ft_strcmp(dir_name, "..") == 0)
+	if ((ft_strcmp(dir_name, ".") || ft_strcmp(dir_name, "..") == 0)
 		&& errno == ENOENT)
 	{
 		ft_free_puterror(state, ".", tmp);

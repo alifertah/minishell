@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:07:26 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 00:18:40 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:47:03 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_prompt(t_state *state)
 		}
 		signal(SIGINT, SIG_IGN);
 		ft_save_io(state);
-		ft_execution(state);
+		execute(state);
 		ft_reset(state);
 	}
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env_addfront.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:53:35 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/11 22:24:56 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:46:50 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /*
-	This function is executed when the export command is run with a +=
+	This function is executiond when the export command is run with a +=
 	option where it adds to the existing value of the env variable.
 */
 void	ft_env_addfront(t_env_var **head, char **new)

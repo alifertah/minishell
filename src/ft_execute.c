@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execute.c                                       :+:      :+:    :+:   */
+/*   execution.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:35:29 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/12 19:08:21 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/12 22:23:04 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	ft_execve(t_state *state, t_cmd *current_cmd)
 	ft_free_temp(paths);
 }
 
-void	ft_execute(t_state *state, t_cmd *current_cmd)
+void	execution(t_state *state, t_cmd *current_cmd)
 {
 	if (ft_strncmp(current_cmd->name, "echo", 5) == 0)
 		ft_echo(state, current_cmd);

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:26:20 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 03:08:06 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/12 22:52:24 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void	ft_freenode(t_env_var *node)
 	free(node);
 }
 
-void	ft_lstdelone(t_state *state, t_env_var *elem)
+void	ft_lstdelone(t_state *state, t_env_var *var)
 {
 	t_env_var	*current_node;
 	t_env_var	*before;
 
-	if (!(state->env) || !elem)
+	if (!(state->env) || !var)
 		return ;
 	current_node = (state->env);
 	before = NULL;
 	while (current_node)
 	{
-		if (current_node == elem)
+		if (current_node == var)
 		{
 			if (!before)
 			{

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:03:07 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/12 18:57:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:25:35 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,15 @@ void	ft_setup_pipe(t_state *state)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	state->fds = malloc((state->pipes) * sizeof(int *));
 	if (!state->fds)
 		ft_free_exit(state, OUT_OF_MEM);
-	while (i < state->pipes)
+	while (++i < state->pipes)
 	{
 		state->fds[i] = malloc(2 * sizeof(int));
 		if (!state->fds[i])
 			ft_free_setup(state, i);
-		i++;
 	}
 	state->pids = malloc((state->pipes + 1) * sizeof(int));
 	if (!state->pids)
