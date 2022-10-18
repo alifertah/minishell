@@ -27,6 +27,7 @@
 # define OUT_OF_MEM 12
 
 # include <stdlib.h>
+# include <wait.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <errno.h>

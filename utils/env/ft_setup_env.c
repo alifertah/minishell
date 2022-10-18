@@ -79,9 +79,12 @@ t_env_var	*ft_setup_env(char **env)
 	while (env[i])
 	{
 		new_env = ft_split_env(env[i], '=');
-		new_var = ft_lstnew(new_env);
-		new_var->index = i++;
-		ft_lstadd_back(&env_lst, new_var);
+		if(ft_strncmp(new_env[0], "OLDPWD", 7) != 0)
+		{
+			new_var = ft_lstnew(new_env);
+			ft_lstadd_back(&env_lst, new_var);
+		}
+			new_var->index = i++;
 	}
 	env_lst = ft_default_env(env_lst);
 	ft_setup_indexes(env_lst);

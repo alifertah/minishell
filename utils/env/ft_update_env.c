@@ -26,18 +26,18 @@ static void	ft_update_pwd(t_state *state)
 	ft_env_update(&state->env, new_env);
 }
 
-static void	ft_update_oldpwd(t_state *state)
+static void	ft_update_oldpwd(t_state *state_)
 {
 	char	*env_str;
 	char	**new_env;
 	char	*tmp;
 
 	tmp = ft_strdup("OLDPWD=");
-	env_str = ft_strjoin(tmp, state->oldpwd);
+	env_str = ft_strjoin(tmp, state_->oldpwd);
 	free(tmp);
 	new_env = ft_split_env(env_str, '=');
 	free(env_str);
-	ft_env_update(&state->env, new_env);
+	ft_env_update(&state_->env, new_env);
 }
 
 char	**ft_update_envtab(t_state *state)

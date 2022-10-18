@@ -53,6 +53,11 @@ static void	ft_env_del(t_state *state, char *name)
 	if (!var)
 		return ;
 	ft_lstdelone(state, var);
+	if(!ft_strcmp(name, "OLDPWD"))
+	{
+		free(state->oldpwd);
+		state->oldpwd = NULL;
+	}
 }
 
 void	ft_env_unset(t_state *state, t_cmd *current_cmd)
