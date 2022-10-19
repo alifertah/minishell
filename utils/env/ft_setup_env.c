@@ -84,7 +84,7 @@ t_env_var	*ft_setup_env(char **env)
 			new_var = ft_lstnew(new_env);
 			ft_lstadd_back(&env_lst, new_var);
 		}
-			new_var->index = i++;
+		new_var->index = i++;
 	}
 	env_lst = ft_default_env(env_lst);
 	ft_setup_indexes(env_lst);

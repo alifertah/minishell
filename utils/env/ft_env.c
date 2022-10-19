@@ -46,11 +46,11 @@ static void	print_env(t_state *state)
 	current_node = state->env;
 	while (current_node)
 	{
-		if (current_node->value == NULL || ft_strlen(current_node->value) == 0)
-		{
-			current_node = current_node->next;
-			continue ;
-		}
+		// if (current_node->value == NULL || ft_strlen(current_node->value) == 0)
+		// {
+		// 	current_node = current_node->next;
+		// 	continue ;
+		// }
 		printf("%s=%s\n", current_node->name, current_node->value);
 		current_node = current_node->next;
 	}

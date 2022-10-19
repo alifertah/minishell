@@ -27,15 +27,15 @@ void	ft_chdir_home(t_state *state)
 {
 	char	*tmp;
 
-	if (!state->home || !state->home->value)
-	{
-		put_error("cd", "HOME not set.\n");
-		state->status = 1;
-		return ;
-	}
+	// if (!state->home || !state->home->value)
+	// {
+	// 	put_error("cd", "HOME not set.\n");
+	// 	state->status = 1;
+	// 	return ;
+	// }
 	tmp = ft_strdup(state->pwd);
 	if (chdir(state->home->value) == -1)
-		put_error("cd", "No such file or directory\n");
+		put_error("cd", "HOME not set\n");
 	else
 		ft_chdir_update(state, tmp);
 }
