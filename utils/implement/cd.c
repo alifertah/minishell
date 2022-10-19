@@ -76,7 +76,10 @@ static void	ft_chdir_back(t_state *state)
 	if (chdir(state->oldpwd) == -1)
 		ft_free_puterror(state, state->oldpwd, tmp);
 	else
+	{
+		printf("%s\n", state->oldpwd);
 		ft_chdir_update(state, tmp);
+	}
 }
 
 
@@ -90,9 +93,7 @@ void	ft_cd(t_state *state, t_cmd *current_cmd)
 	if (ft_strcmp(current_cmd->args[1], "--") == 0)
 		ft_chdir_home(state);
 	else if (ft_strcmp(current_cmd->args[1], "-") == 0)
-		{
 			ft_chdir_back(state);
-		}
 	else
 		ft_chdir(state, current_cmd->args[1]);
 }
