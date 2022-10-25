@@ -12,7 +12,10 @@
 
 #include "minishell.h"
 
-void	ft_handle_status(t_state *state)
+void	
+
+
+ft_handle_status(t_state *state)
 {
 	if (state->status == 3)
 	{

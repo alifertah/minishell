@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipe.c                                          :+:      :+:    :+:   */
+/*   ft_pipes.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:03:07 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/24 20:31:12 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/10/22 11:32:32 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_setup_pipe(t_state *state)
 		ft_free_exit(state, OUT_OF_MEM);
 	while (++i < state->pipes)
 	{
-		state->fds[i] = malloc(2 * sizeof(int));
+		state->fds[i] = malloc(sizeof(int) * 2);
 		if (!state->fds[i])
 			ft_free_setup(state, i);
 	}

@@ -12,51 +12,51 @@
 
 #include "minishell.h"
 
-// static void	ft_free_pipes(t_state *state)
-// {
-// 	int	i;
+static void	ft_free_pipes(t_state *state)
+{
+	int	i;
 
-// 	i = 0;
-// 	if (state->pipes == 0)
-// 		return ;
-// 	while (i < state->pipes)
-// 	{
-// 		free(state->fds[i]);
-// 		state->fds[i] = NULL;
-// 		i++;
-// 	}
-// 	free(state->fds);
-// 	state->fds = NULL;
-// 	free(state->pids);
-// 	state->pids = NULL;
-// }
+	i = 0;
+	if (state->pipes == 0)
+		return ;
+	while (i < state->pipes)
+	{
+		free(state->fds[i]);
+		state->fds[i] = NULL;
+		i++;
+	}
+	free(state->fds);
+	state->fds = NULL;
+	free(state->pids);
+	state->pids = NULL;
+}
 
-// t_cmd	*ft_redirect(t_cmd *cmd)
-// {
-// 	if (cmd->token == REDOUT || cmd->token == APPEND)
-// 	{
-// 		while (cmd->next && (cmd->next->token == REDOUT || \
-// 		cmd->next->token == APPEND))
-// 			cmd = cmd->next;
-// 		if (cmd)
-// 		{
-// 			dup2(cmd->fd, 1);
-// 			close(cmd->fd);
-// 		}
-// 	}
-// 	else if (cmd->token == REDIN || cmd->token == HEREDOC)
-// 	{
-// 		while (cmd->next && (cmd->next->token == REDIN || \
-// 		cmd->next->token == HEREDOC))
-// 			cmd = cmd->next;
-// 		if (cmd)
-// 		{
-// 			dup2(cmd->fd, 0);
-// 			close(cmd->fd);
-// 		}
-// 	}
-// 	return (cmd);
-// }
+t_cmd	*ft_redirect(t_cmd *cmd)
+{
+	if (cmd->token == REDOUT || cmd->token == APPEND)
+	{
+		while (cmd->next && (cmd->next->token == REDOUT || \
+		cmd->next->token == APPEND))
+			cmd = cmd->next;
+		if (cmd)
+		{
+			dup2(cmd->fd, 1);
+			close(cmd->fd);
+		}
+	}
+	else if (cmd->token == REDIN || cmd->token == HEREDOC)
+	{
+		while (cmd->next && (cmd->next->token == REDIN || \
+		cmd->next->token == HEREDOC))
+			cmd = cmd->next;
+		if (cmd)
+		{
+			dup2(cmd->fd, 0);
+			close(cmd->fd);
+		}
+	}
+	return (cmd);
+}
 
 static void	execution_pipeline(t_state *state, t_cmd *cmd, t_cmd *sv)
 {
@@ -95,11 +95,11 @@ void	execute(t_state *state)
 
 	i = -1;
 	current_node = state->cmd_tree;
-	// state->pipes = ft_get_pipes(&state->cmd_tree);
+	state->pipes = ft_get_pipes(&state->cmd_tree);
 	if (state->pipes == 0)
 		return (ft_exec_cmd(state, current_node), ft_handle_status(state));
-	// ft_setup_pipe(state);
-	// ft_loop_pipe(state, current_node);
+	ft_setup_pipe(state);
+	ft_loop_pipe(state, current_node);
 	ft_close(state);
 	while (++i < state->pipes + 1)
 	{
@@ -107,5 +107,5 @@ void	execute(t_state *state)
 				state->status = status;
 	}
 	state->status = WEXITSTATUS(state->status);
-	// ft_free_pipes(state);
+	ft_free_pipes(state);
 }
