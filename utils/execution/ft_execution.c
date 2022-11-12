@@ -73,10 +73,10 @@ static void	execution_pipeline(t_state *state, t_cmd *cmd, t_cmd *sv)
 	}
 	else if (cmd->token == 0)
 		save = cmd;
-	// else if (cmd->token == REDOUT || cmd->token == APPEND)
-	// 	cmd = ft_redirect(cmd);
-	// else if (cmd->token == REDIN || cmd->token == HEREDOC)
-	// 	cmd = ft_redirect(cmd);
+	else if (cmd->token == REDOUT || cmd->token == APPEND)
+		cmd = ft_redirect(cmd);
+	else if (cmd->token == REDIN || cmd->token == HEREDOC)
+		cmd = ft_redirect(cmd);
 	if (!cmd)
 		return ;
 	execution_pipeline(state, cmd->next, save);

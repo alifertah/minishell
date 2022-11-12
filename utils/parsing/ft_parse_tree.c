@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:48:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/09 22:11:32 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:13:57 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,32 +58,32 @@ void	ft_notkn_outcmd(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 	iters->file[0] = 1;
 }
 
-static void	ft_print_tree(t_cmd *head)
-{
-	unsigned int	i;
-	t_cmd			*current_node;
+// static void	ft_print_tree(t_cmd *head)
+// {
+// 	unsigned int	i;
+// 	t_cmd			*current_node;
 
-	if (!head)
-		return ;
-	i = 0;
-	current_node = head;
-	while (current_node)
-	{
-		printf("-------------------------\n");
-		printf("-	NAME : %s -\n", current_node->name);
-		printf("-	ARGS : ");
-		i = 0;
-		while (current_node->args && current_node->args[i])
-			printf("[%s] ", current_node->args[i++]);
-		printf("-\n");
-		printf("-	NUM_OF_ARGS : %d -\n", current_node->num_of_args);
-		printf("-	FILE : %s -\n", current_node->file);
-		printf("-	FILE DESCRIPTOR : %d -\n", current_node->fd);
-		printf("-	TOKEN : %d -\n", current_node->token);
-		current_node = current_node->next;
-	}
-	printf("-------------------------\n");
-}
+// 	if (!head)
+// 		return ;
+// 	i = 0;
+// 	current_node = head;
+// 	while (current_node)
+// 	{
+// 		printf("-------------------------\n");
+// 		printf("-	NAME : %s -\n", current_node->name);
+// 		printf("-	ARGS : ");
+// 		i = 0;
+// 		while (current_node->args && current_node->args[i])
+// 			printf("[%s] ", current_node->args[i++]);
+// 		printf("-\n");
+// 		printf("-	NUM_OF_ARGS : %d -\n", current_node->num_of_args);
+// 		printf("-	FILE : %s -\n", current_node->file);
+// 		printf("-	FILE DESCRIPTOR : %d -\n", current_node->fd);
+// 		printf("-	TOKEN : %d -\n", current_node->token);
+// 		current_node = current_node->next;
+// 	}
+// 	printf("-------------------------\n");
+// }
 
 void	ft_parse_token(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 {
@@ -149,6 +149,6 @@ t_cmd	*ft_parse_tree(char **cmd)
 	ft_free_matrix(cmd);
 	if (iters.stop_tree)
 		return (ft_free_tree(&nodes.head));
-	ft_print_tree(nodes.head);
 	return (nodes.head);
+	// ft_print_tree(nodes.head);
 }
