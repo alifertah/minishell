@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 16:00:50 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/12 18:57:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:10:35 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,9 @@ static char	**ft_expand(t_state *state, char **cmd)
 {
 	unsigned int	i;
 	char			**output;
-	char			*tmp;
 
 	i = 0;
 	output = NULL;
-	tmp = NULL;
 	while (cmd[i])
 	{
 		if (ft_strchr(cmd[i], ENV_SIGN))

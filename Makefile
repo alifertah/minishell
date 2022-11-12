@@ -6,12 +6,12 @@
 #    By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 09:24:43 by olabrahm          #+#    #+#              #
-#    Updated: 2022/10/13 00:48:55 by alfertah         ###   ########.fr        #
+#    Updated: 2022/11/12 15:09:34 by alfertah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=cc
-# FLAGS= -Wall -Wextra -Werror 
+FLAGS= -Wall -Wextra -Werror 
 # -fsanitize=address 
 FILES= 	src/main utils/exits/ft_free_exit src/ft_prompt src/ft_execute utils/implement/cd \
 		utils/implement/echo utils/env/ft_env utils/env/ft_env_export utils/env/ft_env_unset \

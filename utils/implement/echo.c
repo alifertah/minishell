@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:23:13 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 01:10:14 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:10:19 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,7 @@ void	ft_print_n(t_cmd *cmd)
 void	ft_echo(t_state *state, t_cmd *current_cmd)
 {
 	int	i;
-	int t;
 
-	t = 0;
 	i = 1;
 	if(current_cmd->num_of_args == 1)
 	{
@@ -75,7 +73,6 @@ void	ft_echo(t_state *state, t_cmd *current_cmd)
 			{
 				if(find_only(current_cmd->args[i]))
 					break;
-				t = 1;
 				i++;
 			}
 			if(current_cmd->args[i])

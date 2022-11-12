@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:39:52 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/13 03:59:49 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:10:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@
 static void	ft_doc_child(char *eof, int hfd[2])
 {
 	char	*line;
-	int		fd;
 
 	signal(SIGINT, SIG_DFL);
 	line = NULL;
-	fd = hfd[0];
 	while (69)
 	{
 		line = readline("> ");

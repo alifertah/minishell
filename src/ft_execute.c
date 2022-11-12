@@ -36,9 +36,7 @@ ft_handle_status(t_state *state)
 static void	ft_cmd_exec(t_state *state, char **paths, char **cmdarg)
 {
 	char	*path;
-	int		i;
 
-	i = 0;
 	path = ft_check_path(state, paths, cmdarg);
 	if (!path)
 	{
