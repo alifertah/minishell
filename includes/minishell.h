@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/13 03:59:55 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:36:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void			ft_free_exit(t_state *state, int status);
 void			ft_free_matrix(char **matrix);
 t_cmd			*ft_free_tree(t_cmd **head);
 void			ft_free_split(char **array, size_t len);
-void			ft_free_pipefds(t_state *state, int i);
+void			free_pipefd(t_state *state, int i);
 void			ft_free_setup(t_state *state, int i);
 void			ft_freenode(t_env_var *node);
 void			*ft_free_args_len(char **args, unsigned int len);
@@ -130,11 +130,11 @@ void			execution(t_state *state, t_cmd *current_cmd);
 void			execute(t_state *state);
 char			*ft_check_path(t_state *state, char **paths, char **cmdarg);
 char			*ft_check_relative(t_state *state, char *cmd);
-void			ft_pipe_it(t_state *state, t_cmd *current_cmd, int i);
+void			piping(t_state *state, t_cmd *current_cmd, int i);
 int				ft_get_pipes(t_cmd **cmd_tree);
 void			ft_setup_pipe(t_state *state);
 void			ft_exec_cmd(t_state *state, t_cmd *cmd);
-void			ft_loop_pipe(t_state *state, t_cmd *current_node);
+void			init_pipes(t_state *state, t_cmd *current_node);
 void			ft_save_io(t_state *state);
 void			ft_reset_io(t_state *state);
 /*			 EXECUTION - END		*/
@@ -196,7 +196,7 @@ void			ft_set_home(t_env_var *new_value);
 void			ft_cd(t_state *state, t_cmd *current_cmd);
 void			ft_echo(t_state *state, t_cmd *current_cmd);
 void			ft_env(t_state *state, t_cmd *current_cmd);
-void			ft_env_export(t_state *state, t_cmd *current_cmd);
+void			export(t_state *state, t_cmd *current_cmd);
 void			ft_env_unset(t_state *state, t_cmd *current_cmd);
 void			ft_pwd(t_state *state);
 void			ft_exit(t_state *state, t_cmd *current_cmd);

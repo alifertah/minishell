@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipe.c                                          :+:      :+:    :+:   */
+/*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,7 +17,7 @@ void	init_pipes(t_state *state, t_cmd *current_node)
 	int	i;
 
 	i = 0;
-	while (i < state->pipes + 1 && current_node)
+	while (i <= state->pipes && current_node)
 	{
 		if (current_node->next == NULL)
 			state->sig = 1;
@@ -83,7 +83,7 @@ void	piping(t_state *state, t_cmd *current_cmd, int i)
 {
 	if (i == 0)
 		dup2(state->fds[i][1], 1);
-	else if (i == state->pipes)
+	if (i == state->pipes)
 		dup2(state->fds[i - 1][0], 0);
 	else
 	{
@@ -91,8 +91,8 @@ void	piping(t_state *state, t_cmd *current_cmd, int i)
 		dup2(state->fds[i][1], 1);
 	}
 	ft_close(state);
-	ft_exec_cmd(state, current_cmd);
+	execute_cmd(state, current_cmd);
 	if (state->sig)
-		ft_handle_status(state);
+		handle_status(state);
 	exit(state->status);
 }

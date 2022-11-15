@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:11:20 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/14 17:38:46 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:16:46 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_free_childs(t_state *state, int status)
 		free(state->pwd);
 	if (state->oldpwd)
 		free(state->oldpwd);
-	ft_free_pipefds(state, state->pipes);
+	free_pipefd(state, state->pipes);
 	ft_free_tree(&state->cmd_tree);
 	ft_free_matrix(state->envtab);
 	clear_history();

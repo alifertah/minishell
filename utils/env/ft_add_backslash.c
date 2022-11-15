@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_add_backslash.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:29:23 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/09 11:41:59 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:26:27 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	ft_ct_quotes(char *value)
+static int	count_quotes(char *value)
 {
 	unsigned int	i;
 	int				count;
@@ -33,14 +33,14 @@ char	*ft_add_backslash(char *value)
 	unsigned int	i;
 	unsigned int	j;
 	char			*output;
-	int				quote_count;
+	int				quotes;
 
 	if (!value || !ft_strlen(value))
 		return (NULL);
-	quote_count = ft_ct_quotes(value);
-	if (!quote_count)
+	quotes = count_quotes(value);
+	if (!quotes)
 		return (ft_strdup(value));
-	output = (char *) malloc((ft_strlen(value) + quote_count) * sizeof(char));
+	output = (char *) malloc((ft_strlen(value) + quotes) * sizeof(char));
 	if (!output)
 		return (NULL);
 	i = 0;

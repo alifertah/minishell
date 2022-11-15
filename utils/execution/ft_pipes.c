@@ -6,13 +6,13 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:03:07 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/22 11:32:32 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:16:46 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_loop_pipe(t_state *state, t_cmd *current_node)
+void	init_pipes(t_state *state, t_cmd *current_node)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ void	ft_loop_pipe(t_state *state, t_cmd *current_node)
 		if (state->pids[i] == -1)
 			ft_free_setup(state, -1);
 		if (state->pids[i] == 0)
-			ft_pipe_it(state, current_node, i);
+			piping(state, current_node, i);
 		while (current_node && current_node->token != PIPE)
 			current_node = current_node->next;
 		if (!current_node)
@@ -74,12 +74,12 @@ void	ft_setup_pipe(t_state *state)
 		if (pipe(state->fds[i]) == -1)
 		{
 			put_error("pipe", "broken pipe error\n");
-			ft_free_pipefds(state, i);
+			free_pipefd(state, i);
 		}
 	}
 }
 
-void	ft_pipe_it(t_state *state, t_cmd *current_cmd, int i)
+void	piping(t_state *state, t_cmd *current_cmd, int i)
 {
 	if (i == 0)
 		dup2(state->fds[i][1], 1);

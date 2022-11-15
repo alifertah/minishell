@@ -77,7 +77,7 @@ static void	ft_exec_path(t_state *state, t_cmd *current_cmd)
 static void	ft_execve(t_state *state, t_cmd *current_cmd)
 {
 	char	**paths;
-	char	**cmdarg;
+	char	**carg;
 	char	*forfree;
 	int		i;
 
@@ -87,7 +87,7 @@ static void	ft_execve(t_state *state, t_cmd *current_cmd)
 	if (current_cmd->args[0][0] == '.' ||
 		ft_strchr(current_cmd->args[0], '/'))
 		return (ft_exec_path(state, current_cmd));
-	cmdarg = current_cmd->args;
+	carg = current_cmd->args;
 	state->path = ft_get_env(&state->env, "PATH");
 	paths = NULL;
 	if (state->path)
@@ -98,7 +98,7 @@ static void	ft_execve(t_state *state, t_cmd *current_cmd)
 		paths[i] = ft_strjoin(paths[i], "/");
 		free(forfree);
 	}
-	ft_cmd_exec(state, paths, cmdarg);
+	ft_cmd_exec(state, paths, carg);
 	ft_free_temp(paths);
 }
 
@@ -115,7 +115,7 @@ void	execution(t_state *state, t_cmd *current_cmd)
 	else if (ft_strncmp(current_cmd->name, "unset", 6) == 0)
 		ft_env_unset(state, current_cmd);
 	else if (ft_strncmp(current_cmd->name, "export", 7) == 0)
-		ft_env_export(state, current_cmd);
+		export(state, current_cmd);
 	else if (ft_strncmp(current_cmd->name, "exit", 5) == 0)
 		ft_exit(state, current_cmd);
 	else

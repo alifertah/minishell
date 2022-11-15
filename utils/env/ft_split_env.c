@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_env.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 09:54:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/11 22:25:10 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:41:18 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static int	ft_env_validname(char *name)
 static char	*ft_extract_name(char *str, char c)
 {
 	unsigned int	i;
-	unsigned int	name_len;
+	unsigned int	key_len;
 	char			*name;
 
 	i = 0;
-	name_len = 0;
+	key_len = 0;
 	name = ft_strdup("");
 	if (!name)
 		return (NULL);
@@ -48,9 +48,9 @@ static char	*ft_extract_name(char *str, char c)
 		name = ft_charjoin(name, str[i++]);
 		if (!name)
 			return (NULL);
-		name_len++;
+		key_len++;
 	}
-	name[name_len] = '\0';
+	name[key_len] = '\0';
 	if (ft_strlen(name) == 0)
 	{
 		free(name);
@@ -92,24 +92,24 @@ static char	**ft_free(void *ptr1, void *ptr2, void *ptr3)
 char	**ft_split_env(char *str, char c)
 {
 	unsigned int	i;
-	char			**output;
+	char			**new_val;
 	char			*name;
 	char			*value;
 
 	i = 0;
 	if (!str || !str[0] || str[0] == c)
 		return (NULL);
-	output = (char **) malloc(3 * sizeof(char *));
-	if (!output)
+	new_val = (char **) malloc(sizeof(char *) * 3);
+	if (!new_val)
 		return (NULL);
 	name = ft_extract_name(str, c);
 	if (!name || !ft_env_validname(name))
-		return (ft_free((void *) output, (void *) name, NULL));
+		return (ft_free((void *) new_val, (void *) name, NULL));
 	value = ft_extract_value(str, c, (unsigned int) ft_strlen(name));
 	if (!value)
-		return (ft_free((void *) output, (void *) name, NULL));
-	output[i++] = name;
-	output[i++] = value;
-	output[i] = NULL;
-	return (output);
+		return (ft_free((void *) new_val, (void *) name, NULL));
+	new_val[i++] = name;
+	new_val[i++] = value;
+	new_val[i] = NULL;
+	return (new_val);
 }

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:23:13 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/12 15:10:19 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:30:55 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int find_only(char *cmd)
     return 0;
 }
 
-void	ft_print_n(t_cmd *cmd)
+void	ft_print_nl(t_cmd *cmd)
 {
 	int i;
 
@@ -79,7 +79,7 @@ void	ft_echo(t_state *state, t_cmd *current_cmd)
 				ft_print(current_cmd->args, i);
 		}
 		else
-			ft_print_n(current_cmd);
+			ft_print_nl(current_cmd);
 	}
 	state->status = 0;
 }

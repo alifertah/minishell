@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 19:26:07 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 19:09:24 by alfertah         ###   ########.fr       */
+/*   Created: 2022/11/14 00:49:51 by alfertah          #+#    #+#             */
+/*   Updated: 2022/11/15 23:23:42 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static t_env_var	*ft_get_sorted_index(t_env_var *head, unsigned int i)
+static t_env_var	*sorted_index(t_env_var *head, unsigned int i)
 {
 	t_env_var		*current_node;
 
@@ -26,26 +26,26 @@ static t_env_var	*ft_get_sorted_index(t_env_var *head, unsigned int i)
 	return (NULL);
 }
 
-static void	print_env_export(t_env_var *head)
+static void	print_export(t_env_var *head)
 {
 	t_env_var		*current_node;
 	unsigned int	i;
 	unsigned int	lst_size;
-	char			*output;
+	char			*out;
 
 	i = 0;
 	lst_size = ft_lstsize(head);
 	while (i <= lst_size)
 	{
-		current_node = ft_get_sorted_index(head, i);
+		current_node = sorted_index(head, i);
 		if (!current_node)
 			return ;
-		output = ft_add_backslash(current_node->value);
-		if (!output)
+		out = ft_add_backslash(current_node->value);
+		if (!out)
 			printf("declare -x %s\n", current_node->name);
 		else
-			printf("declare -x %s=\"%s\"\n", current_node->name, output);
-		free(output);
+			printf("declare -x %s=\"%s\"\n", current_node->name, out);
+		free(out);
 		i++;
 	}
 }
@@ -84,14 +84,14 @@ void	ft_env_update(t_env_var **head, char **new)
 	var->both = new;
 }
 
-void	ft_env_export(t_state *state, t_cmd *current_cmd)
+void	export(t_state *state, t_cmd *current_cmd)
 {
 	unsigned int	i;
 	char			**new_var;
 
 	i = 0;
 	if (current_cmd->num_of_args == 1)
-		print_env_export(state->env);
+		print_export(state->env);
 	else
 	{
 		while (current_cmd->args[++i])

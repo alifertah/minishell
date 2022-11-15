@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                     :+:      :+:    :+:   */
+/*   ft_execution.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 18:48:22 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/13 00:46:50 by alfertah         ###   ########.fr       */
+/*   Created: 2022/11/14 00:26:47 by alfertah          #+#    #+#             */
+/*   Updated: 2022/11/14 00:26:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	ft_free_pipes(t_state *state)
+static void	free_pipe(t_state *state)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ static void	ft_free_pipes(t_state *state)
 	state->pids = NULL;
 }
 
-t_cmd	*ft_redirect(t_cmd *cmd)
+t_cmd	*ft_redirecting(t_cmd *cmd)
 {
 	if (cmd->token == REDOUT || cmd->token == APPEND)
 	{
@@ -58,7 +58,7 @@ t_cmd	*ft_redirect(t_cmd *cmd)
 	return (cmd);
 }
 
-static void	execution_pipeline(t_state *state, t_cmd *cmd, t_cmd *sv)
+static void	execute_line(t_state *state, t_cmd *cmd, t_cmd *sv)
 {
 	t_cmd	*save;
 
@@ -74,17 +74,17 @@ static void	execution_pipeline(t_state *state, t_cmd *cmd, t_cmd *sv)
 	else if (cmd->token == 0)
 		save = cmd;
 	else if (cmd->token == REDOUT || cmd->token == APPEND)
-		cmd = ft_redirect(cmd);
+		cmd = ft_redirecting(cmd);
 	else if (cmd->token == REDIN || cmd->token == HEREDOC)
-		cmd = ft_redirect(cmd);
+		cmd = ft_redirecting(cmd);
 	if (!cmd)
 		return ;
-	execution_pipeline(state, cmd->next, save);
+	execute_line(state, cmd->next, save);
 }
 
 void	ft_exec_cmd(t_state *state, t_cmd *cmd)
 {
-	execution_pipeline(state, cmd, NULL);
+	execute_line(state, cmd, NULL);
 }
 
 void	execute(t_state *state)
@@ -99,7 +99,7 @@ void	execute(t_state *state)
 	if (state->pipes == 0)
 		return (ft_exec_cmd(state, current_node), ft_handle_status(state));
 	ft_setup_pipe(state);
-	ft_loop_pipe(state, current_node);
+	init_pipes(state, current_node);
 	ft_close(state);
 	while (++i < state->pipes + 1)
 	{
@@ -107,5 +107,5 @@ void	execute(t_state *state)
 				state->status = status;
 	}
 	state->status = WEXITSTATUS(state->status);
-	ft_free_pipes(state);
+	free_pipe(state);
 }

@@ -6,13 +6,13 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:19:46 by alfertah          #+#    #+#             */
-/*   Updated: 2022/10/10 01:32:25 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:16:46 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_free_pipefds(t_state *state, int i)
+void	free_pipefd(t_state *state, int i)
 {
 	i--;
 	while (i >= 0)

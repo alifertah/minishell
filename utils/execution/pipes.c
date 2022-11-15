@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipe.c                                          :+:      :+:    :+:   */
+/*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -61,7 +61,7 @@ void	ft_setup_pipe(t_state *state)
 		ft_free_exit(state, OUT_OF_MEM);
 	while (++i < state->pipes)
 	{
-		state->fds[i] = malloc(2 * sizeof(int));
+		state->fds[i] = malloc(sizeof(int) * 2);
 		if (!state->fds[i])
 			ft_free_setup(state, i);
 	}
@@ -91,8 +91,8 @@ void	piping(t_state *state, t_cmd *current_cmd, int i)
 		dup2(state->fds[i][1], 1);
 	}
 	ft_close(state);
-	ft_exec_cmd(state, current_cmd);
+	execute_cmd(state, current_cmd);
 	if (state->sig)
-		ft_handle_status(state);
+		handle_status(state);
 	exit(state->status);
 }
