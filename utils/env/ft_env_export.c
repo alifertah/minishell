@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 00:49:51 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/15 23:23:42 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/16 23:18:27 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_env_update(t_env_var **head, char **new)
 	var->both = new;
 }
 
-void	export(t_state *state, t_cmd *current_cmd)
+void	ft_export(t_state *state, t_cmd *current_cmd)
 {
 	unsigned int	i;
 	char			**new_var;

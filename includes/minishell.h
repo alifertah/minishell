@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/14 00:36:51 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/16 23:16:22 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ void			ft_set_home(t_env_var *new_value);
 void			ft_cd(t_state *state, t_cmd *current_cmd);
 void			ft_echo(t_state *state, t_cmd *current_cmd);
 void			ft_env(t_state *state, t_cmd *current_cmd);
-void			export(t_state *state, t_cmd *current_cmd);
+void			ft_export(t_state *state, t_cmd *current_cmd);
 void			ft_env_unset(t_state *state, t_cmd *current_cmd);
 void			ft_pwd(t_state *state);
 void			ft_exit(t_state *state, t_cmd *current_cmd);

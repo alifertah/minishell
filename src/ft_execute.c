@@ -115,7 +115,7 @@ void	execution(t_state *state, t_cmd *current_cmd)
 	else if (ft_strncmp(current_cmd->name, "unset", 6) == 0)
 		ft_env_unset(state, current_cmd);
 	else if (ft_strncmp(current_cmd->name, "export", 7) == 0)
-		export(state, current_cmd);
+		ft_export(state, current_cmd);
 	else if (ft_strncmp(current_cmd->name, "exit", 5) == 0)
 		ft_exit(state, current_cmd);
 	else
