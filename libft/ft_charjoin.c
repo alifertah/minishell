@@ -3,46 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_charjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 09:57:51 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/11 22:29:05 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:57:14 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_one_char_str(char c)
+static char	*one_character(char c)
 {
-	char	*output;
+	char	*return_val;
 
-	output = (char *) malloc(2 * sizeof(char));
-	if (!output)
+	return_val = (char *) malloc(2 * sizeof(char));
+	if (!return_val)
 		return (NULL);
-	output[0] = c;
-	output[1] = 0;
-	return (output);
+	return_val[0] = c;
+	return_val[1] = 0;
+	return (return_val);
 }
 
 char	*ft_charjoin(char *s1, char c)
 {
 	unsigned int	i;
-	char			*output;
+	char			*return_val;
 
 	if (!s1)
-		return (ft_one_char_str(c));
+		return (one_character(c));
 	i = 0;
-	output = (char *) malloc((ft_strlen(s1) + 2) * sizeof(char));
-	if (!output)
+	return_val = (char *) malloc((ft_strlen(s1) + 2) * sizeof(char));
+	if (!return_val)
 		return (NULL);
 	while (s1[i])
 	{
-		output[i] = s1[i];
+		return_val[i] = s1[i];
 		i++;
 	}
-	output[i++] = c;
-	output[i] = '\0';
+	return_val[i++] = c;
+	return_val[i] = '\0';
 	free(s1);
 	s1 = NULL;
-	return (output);
+	return (return_val);
 }

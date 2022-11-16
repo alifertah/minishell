@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:39:52 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/13 02:06:36 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/16 00:35:04 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_doc_child(char *eof, int hfd[2])
 
 	signal(SIGINT, SIG_DFL);
 	line = NULL;
-	while (69)
+	while ("zbi")
 	{
 		line = readline("> ");
 		if (!line || !ft_strncmp(line, eof, ft_strlen(eof) + 1))

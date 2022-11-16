@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 09:54:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/14 00:41:18 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:58:41 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_env_validname(char *name)
 	return (1);
 }
 
-static char	*ft_extract_name(char *str, char c)
+static char	*name_only(char *str, char c)
 {
 	unsigned int	i;
 	unsigned int	key_len;
@@ -102,7 +102,7 @@ char	**ft_split_env(char *str, char c)
 	new_val = (char **) malloc(sizeof(char *) * 3);
 	if (!new_val)
 		return (NULL);
-	name = ft_extract_name(str, c);
+	name = name_only(str, c);
 	if (!name || !ft_env_validname(name))
 		return (ft_free((void *) new_val, (void *) name, NULL));
 	value = ft_extract_value(str, c, (unsigned int) ft_strlen(name));
