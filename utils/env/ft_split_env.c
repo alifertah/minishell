@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 09:54:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/16 22:58:41 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/17 22:53:00 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static int	ft_env_validname(char *name)
 static char	*name_only(char *str, char c)
 {
 	unsigned int	i;
-	unsigned int	key_len;
+	unsigned int	len_name;
 	char			*name;
 
 	i = 0;
-	key_len = 0;
+	len_name = 0;
 	name = ft_strdup("");
 	if (!name)
 		return (NULL);
@@ -48,9 +48,9 @@ static char	*name_only(char *str, char c)
 		name = ft_charjoin(name, str[i++]);
 		if (!name)
 			return (NULL);
-		key_len++;
+		len_name++;
 	}
-	name[key_len] = '\0';
+	name[len_name] = '\0';
 	if (ft_strlen(name) == 0)
 	{
 		free(name);

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:07:26 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/13 03:59:49 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/17 03:57:34 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_init_loop(t_state *state)
 	state->man_err = 0;
 	state->pid = -1;
 	state->sig = 0;
-	state->line = readline("\033[1mminishell-2.0$> \033[m");
+	state->line = readline("\033[1mminishell-5.0$> \033[m");
 	rl_on_new_line();
 }
 
@@ -53,7 +53,7 @@ static void	ft_reset(t_state *state)
 
 void	ft_prompt(t_state *state)
 {
-	while (1337)
+	while ("zbi")
 	{
 		signal(SIGINT, ft_handle_sigint_parent);
 		signal(SIGQUIT, SIG_IGN);

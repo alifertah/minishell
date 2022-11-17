@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_backslash.c                                 :+:      :+:    :+:   */
+/*   get_name.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -28,7 +28,7 @@ static int	count_quotes(char *value)
 	return (count);
 }
 
-char	*ft_add_backslash(char *value)
+char	*get_name(char *value)
 {
 	unsigned int	i;
 	unsigned int	j;

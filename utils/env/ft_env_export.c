@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 00:49:51 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/16 23:18:27 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/17 23:17:08 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	print_export(t_env_var *head)
 		current_node = sorted_index(head, i);
 		if (!current_node)
 			return ;
-		out = ft_add_backslash(current_node->value);
+		out = get_name(current_node->value);
 		if (!out)
 			printf("declare -x %s\n", current_node->name);
 		else
@@ -87,7 +87,7 @@ void	ft_env_update(t_env_var **head, char **new)
 void	ft_export(t_state *state, t_cmd *current_cmd)
 {
 	unsigned int	i;
-	char			**new_var;
+	char			**new;
 
 	i = 0;
 	if (current_cmd->num_of_args == 1)
@@ -96,16 +96,16 @@ void	ft_export(t_state *state, t_cmd *current_cmd)
 	{
 		while (current_cmd->args[++i])
 		{
-			new_var = ft_split_env(current_cmd->args[i], '=');
-			if (!new_var)
+			new = ft_split_env(current_cmd->args[i], '=');
+			if (!new)
 			{
 				put_error(current_cmd->args[i], "not a valid identifier\n");
 				state->status = 1;
 			}
-			else if (ft_get_env(&state->env, new_var[0]))
-				ft_env_update(&state->env, new_var);
+			else if (ft_get_env(&state->env, new[0]))
+				ft_env_update(&state->env, new);
 			else
-				ft_env_add(&state->env, new_var);
+				ft_env_add(&state->env, new);
 		}
 	}
 	state->status = 0;

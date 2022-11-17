@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/16 23:16:22 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/17 01:24:46 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ t_env_var		*ft_get_env(t_env_var **head, char *name);
 t_env_var		*ft_default_env(t_env_var *old_env);
 unsigned int	ft_lstsize(t_env_var *head);
 char			**ft_split_env(char *str, char c);
-char			*ft_add_backslash(char *value);
+char			*get_name(char *value);
 char			**ft_update_envtab(t_state *state);
 void			ft_lstadd_back(t_env_var **head, t_env_var *new);
 void			ft_lstclear(t_env_var **head);
