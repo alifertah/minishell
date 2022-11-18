@@ -15,15 +15,15 @@
 char	*ft_check_path(t_state *state, char **paths, char **cmdarg)
 {
 	int		i;
-	char	*forfree;
+	char	*ffree;
 
 	i = 0;
 	while (paths && paths[i])
 	{
-		forfree = ft_strjoin(paths[i++], cmdarg[0]);
-		if (!access(forfree, X_OK | F_OK))
-			return (forfree);
-		free(forfree);
+		ffree = ft_strjoin(paths[i++], cmdarg[0]);
+		if (!access(ffree, X_OK | F_OK))
+			return (ffree);
+		free(ffree);
 	}
 	state->status = 127;
 	return (NULL);

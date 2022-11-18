@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:11:20 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/12 16:16:46 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/18 01:56:28 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ void	ft_free_temp(char **s1)
 	s1 = NULL;
 }
 
-void	ft_free_matrix(char **matrix)
+void	ft_free_matrix(char **node)
 {
 	int	i;
 
-	if (!matrix)
+	if (!node)
 		return ;
 	i = 0;
-	while (matrix[i])
+	while (node[i])
 	{
-		free(matrix[i]);
-		matrix[i++] = NULL;
+		free(node[i]);
+		node[i++] = NULL;
 	}
-	free(matrix);
-	matrix = NULL;
+	free(node);
+	node = NULL;
 }
 
 void	ft_free_exit(t_state *state, int status)

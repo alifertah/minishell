@@ -56,7 +56,7 @@ static void	ft_cmd_exec(t_state *state, char **paths, char **cmdarg)
 	free(path);
 }
 
-static void	ft_exec_path(t_state *state, t_cmd *current_cmd)
+static void	ft_exe_path(t_state *state, t_cmd *current_cmd)
 {
 	int	pid;
 
@@ -78,15 +78,15 @@ static void	ft_execve(t_state *state, t_cmd *current_cmd)
 {
 	char	**paths;
 	char	**carg;
-	char	*forfree;
+	char	*tmp;
 	int		i;
 
 	i = -1;
-	if (current_cmd->name[0] == 0)
+	if (!current_cmd->name[0])
 		return (put_error(current_cmd->name, "command not found\n"));
 	if (current_cmd->args[0][0] == '.' ||
 		ft_strchr(current_cmd->args[0], '/'))
-		return (ft_exec_path(state, current_cmd));
+		return (ft_exe_path(state, current_cmd));
 	carg = current_cmd->args;
 	state->path = ft_get_env(&state->env, "PATH");
 	paths = NULL;
@@ -94,9 +94,9 @@ static void	ft_execve(t_state *state, t_cmd *current_cmd)
 		paths = ft_split(state->path->value, ':');
 	while (paths && paths[++i])
 	{
-		forfree = paths[i];
+		tmp = paths[i];
 		paths[i] = ft_strjoin(paths[i], "/");
-		free(forfree);
+		free(tmp);
 	}
 	ft_cmd_exec(state, paths, carg);
 	ft_free_temp(paths);
