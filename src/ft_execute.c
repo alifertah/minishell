@@ -60,7 +60,7 @@ static void	ft_exe_path(t_state *state, t_cmd *current_cmd)
 {
 	int	pid;
 
-	if (!ft_check_relative(state, current_cmd->name))
+	if (!ft_check_file(state, current_cmd->name))
 		return ;
 	pid = fork();
 	if (pid == -1)

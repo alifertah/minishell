@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/17 01:24:46 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:59:26 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ char			**ft_split_args(char *s, char c);
 void			execution(t_state *state, t_cmd *current_cmd);
 void			execute(t_state *state);
 char			*ft_check_path(t_state *state, char **paths, char **cmdarg);
-char			*ft_check_relative(t_state *state, char *cmd);
+char			*ft_check_file(t_state *state, char *cmd);
 void			piping(t_state *state, t_cmd *current_cmd, int i);
 int				ft_get_pipes(t_cmd **cmd_tree);
 void			ft_setup_pipe(t_state *state);

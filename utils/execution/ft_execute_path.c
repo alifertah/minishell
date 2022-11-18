@@ -29,7 +29,7 @@ char	*ft_check_path(t_state *state, char **paths, char **cmdarg)
 	return (NULL);
 }
 
-char	*ft_check_relative(t_state *state, char *cmd)
+char	*ft_check_file(t_state *state, char *cmd)
 {
 	struct stat	statbuf;
 
