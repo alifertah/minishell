@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_unset.c                                     :+:      :+:    :+:   */
+/*   ft_unset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -60,7 +60,7 @@ static void	ft_env_del(t_state *state, char *name)
 	}
 }
 
-void	ft_env_unset(t_state *state, t_cmd *current_cmd)
+void	ft_unset(t_state *state, t_cmd *current_cmd)
 {
 	unsigned int	i;
 

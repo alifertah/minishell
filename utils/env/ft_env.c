@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:25:48 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 19:09:24 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:44:17 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static void	print_env(t_state *state)
 	current_node = state->env;
 	while (current_node)
 	{
-		// if (current_node->value == NULL || ft_strlen(current_node->value) == 0)
-		// {
-		// 	current_node = current_node->next;
-		// 	continue ;
-		// }
+		if (current_node->value == NULL || ft_strlen(current_node->value) == 0)
+		{
+			current_node = current_node->next;
+			continue ;
+		}
 		printf("%s=%s\n", current_node->name, current_node->value);
 		current_node = current_node->next;
 	}

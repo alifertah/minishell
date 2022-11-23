@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/18 12:59:26 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:33:47 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define OUT_OF_MEM 12
 
 # include <stdlib.h>
-# include <wait.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <errno.h>
@@ -197,7 +198,7 @@ void			ft_cd(t_state *state, t_cmd *current_cmd);
 void			ft_echo(t_state *state, t_cmd *current_cmd);
 void			ft_env(t_state *state, t_cmd *current_cmd);
 void			ft_export(t_state *state, t_cmd *current_cmd);
-void			ft_env_unset(t_state *state, t_cmd *current_cmd);
+void			ft_unset(t_state *state, t_cmd *current_cmd);
 void			ft_pwd(t_state *state);
 void			ft_exit(t_state *state, t_cmd *current_cmd);
 /*			 BUILTINS - END			*/

@@ -18,7 +18,6 @@ void	ft_put_cd_err(t_state *state, char *dir_name)
 		return ;
 	state->status = 1;
 	if (!ft_strncmp(dir_name, ".", 2))
-
 	{
 		put_error("cd", "error retrieving current directory\n");
 		put_error("getcwd", "cannot access parent directories\n");
@@ -35,10 +34,10 @@ void	ft_put_cd_err(t_state *state, char *dir_name)
 }
 
 void	ft_free_puterror(t_state *state, char *dir_name,
-			char *to_free)
+			char *pwd)
 {
 	ft_put_cd_err(state, dir_name);
-	free(to_free);
+	free(pwd);
 }
 
 void	ft_chdir_update(t_state *state, char *new)
