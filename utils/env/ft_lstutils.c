@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:03:39 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/11 18:09:15 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:39:15 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_env_var	*ft_lstnew(char **value)
 {
 	t_env_var	*new_lst;
-	char		*tmp;
+	 char		*tmp;
 
 	new_lst = (t_env_var *) malloc(1 * sizeof(t_env_var));
 	if (!new_lst)

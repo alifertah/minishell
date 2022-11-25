@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:23:13 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/14 00:30:55 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:39:45 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,29 @@ static void	ft_print(char **array, int starting_from)
 	}
 }
 
-int find_only(char *cmd)
+int	find_only(char *cmd)
 {
-    int i;
-    i = 1;
-    while (cmd[i])
-    {
-        if (cmd[i] != 'n')
-            return 1;
-        i++;
-    }
-    return 0;
+	int		i;
+
+	i = 1;
+	while (cmd[i])
+	{
+		if (cmd[i] != 'n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 void	ft_print_nl(t_cmd *cmd)
 {
-	int i;
+	int	i;
 
 	i = 1;
-
-	while(cmd->args[i])
+	while (cmd->args[i])
 	{
 		printf("%s ", cmd->args[i]);
-		if(!cmd->args[i + 1])
+		if (!cmd->args[i + 1])
 		{
 			printf("\n");
 		}
@@ -60,7 +60,7 @@ void	ft_echo(t_state *state, t_cmd *current_cmd)
 	int	i;
 
 	i = 1;
-	if(current_cmd->num_of_args == 1)
+	if (current_cmd->num_of_args == 1)
 	{
 		printf("\n");
 		state->status = 0;
@@ -69,13 +69,13 @@ void	ft_echo(t_state *state, t_cmd *current_cmd)
 	{
 		if (current_cmd->args[i][0] == '-')
 		{
-			while(current_cmd->args[i])
+			while (current_cmd->args[i])
 			{
-				if(find_only(current_cmd->args[i]))
-					break;
+				if (find_only(current_cmd->args[i]))
+					break ;
 				i++;
 			}
-			if(current_cmd->args[i])
+			if (current_cmd->args[i])
 				ft_print(current_cmd->args, i);
 		}
 		else

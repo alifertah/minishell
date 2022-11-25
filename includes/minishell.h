@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/23 16:33:47 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:02:20 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ char			**ft_update_envtab(t_state *state);
 void			ft_lstadd_back(t_env_var **head, t_env_var *new);
 void			ft_lstclear(t_env_var **head);
 void			ft_setup_indexes(t_env_var *head);
-void			ft_env_addfront(t_env_var **head, char **new);
+void			ft_var_add(t_env_var **head, char **new);
 void			ft_env_add(t_env_var **head, char **new);
 void			ft_env_update(t_env_var **head, char **new);
 void			ft_get_vars(t_state *state, int *i);

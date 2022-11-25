@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 00:49:51 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/21 21:16:23 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:02:24 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_env_update(t_env_var **head, char **new)
 	name = new[0];
 	if (name[ft_strlen(name) - 1] == '+')
 	{
-		ft_env_addfront(head, new);
+		ft_var_add(head, new);
 		return ;
 	}
 	value = new[1];

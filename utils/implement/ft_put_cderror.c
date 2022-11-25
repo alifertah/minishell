@@ -48,4 +48,3 @@ void	ft_chdir_update(t_state *state, char *new)
 	state->status = 0;
 	ft_update_env(state);
 }
-

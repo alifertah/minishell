@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:24:23 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/21 15:35:12 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:41:49 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	ft_chdir_back(t_state *state)
 {
 	char	*tmp;
 
-	if(state->oldpwd == NULL)
+	if (state->oldpwd == NULL)
 	{
 		put_error("cd", "OLDPWD not set.\n");
 		state->status = 1;
@@ -76,7 +76,6 @@ static void	ft_chdir_back(t_state *state)
 	}
 }
 
-
 void	ft_cd(t_state *state, t_cmd *current_cmd)
 {
 	if (current_cmd->num_of_args == 1)
@@ -84,10 +83,11 @@ void	ft_cd(t_state *state, t_cmd *current_cmd)
 		ft_chdir_home(state);
 		return ;
 	}
-	if (ft_strcmp(current_cmd->args[1], "--") == 0)
+	if (ft_strcmp(current_cmd->args[1], "--") == 0
+		|| ft_strcmp(current_cmd->args[1], "~") == 0)
 		ft_chdir_home(state);
 	else if (ft_strcmp(current_cmd->args[1], "-") == 0)
-			ft_chdir_back(state);
+		ft_chdir_back(state);
 	else
 		ft_chdir(state, current_cmd->args[1]);
 }

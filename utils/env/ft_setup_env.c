@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:14:14 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 00:15:04 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:40:51 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_env_var	*ft_setup_env(char **env)
 	while (env[i])
 	{
 		new_env = ft_split_env(env[i], '=');
-		if(ft_strncmp(new_env[0], "OLDPWD", 7) != 0)
+		if (ft_strncmp(new_env[0], "OLDPWD", 7) != 0)
 		{
 			new_var = ft_lstnew(new_env);
 			ft_lstadd_back(&env_lst, new_var);

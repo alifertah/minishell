@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:09:23 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/21 10:56:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:00:46 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ t_env_var	*ft_edit_default(t_env_var *old_env)
 		tmp = ft_add_pwd(&i);
 		ft_lstadd_back(&old_env, tmp);
 	}
-	// if (!ft_get_env(&old_env, "OLDPWD"))
-	// 	ft_add_oldpwd(&old_env, &i);
+	if (!ft_get_env(&old_env, "OLDPWD"))
+		ft_add_oldpwd(&old_env, &i);
 	if (!ft_get_env(&old_env, "SHLVL"))
 		ft_add_shlvl(&old_env, &i);
 	return (old_env);

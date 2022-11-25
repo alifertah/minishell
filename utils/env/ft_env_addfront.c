@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_addfront.c                                  :+:      :+:    :+:   */
+/*   ft_var_add.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 	This function is executiond when the export command is run with a +=
 	option where it adds to the existing value of the env variable.
 */
-void	ft_env_addfront(t_env_var **head, char **new)
+void	ft_var_add(t_env_var **head, char **new)
 {
 	t_env_var	*var;
 	char		*name;

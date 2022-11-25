@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:48:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/12 15:13:57 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:28:22 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,4 @@ t_cmd	*ft_parse_tree(char **cmd)
 	if (iters.stop_tree)
 		return (ft_free_tree(&nodes.head));
 	return (nodes.head);
-	// ft_print_tree(nodes.head);
 }
