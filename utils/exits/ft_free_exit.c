@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:11:20 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 18:36:34 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:01:07 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ void	ft_free_temp(char **s1)
 	s1 = NULL;
 }
 
-void	ft_free_matrix(char **node)
+void	ft_free_matrix(char **arr)
 {
 	int	i;
 
-	if (!node)
+	if (!arr)
 		return ;
 	i = 0;
-	while (node[i])
+	while (arr[i])
 	{
-		free(node[i]);
-		node[i++] = NULL;
+		free(arr[i]);
+		arr[i++] = NULL;
 	}
-	free(node);
-	node = NULL;
+	free(arr);
+	arr = NULL;
 }
 
 void	ft_free_exit(t_state *state, int status)

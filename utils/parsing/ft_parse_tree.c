@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_tree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:48:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 15:28:22 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:49:43 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	ft_notkn_outcmd(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 		return ;
 	}
 	(nodes->current_node)->name = ft_strdup(ft_lowerstr(cmd[iters->i]));
+	if (!(nodes->current_node)->name)
+	{
+		iters->stop_tree = 1;
+		return ;
+	}
 	(nodes->current_node)->num_of_args = 1;
 	(nodes->current_node)->args = ft_init_args(cmd[iters->i]);
 	(nodes->current_node)->file = NULL;

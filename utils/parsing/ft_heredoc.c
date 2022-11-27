@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:39:52 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/16 00:35:04 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:50:25 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_doc_child(char *eof, int hfd[2])
 
 	signal(SIGINT, SIG_DFL);
 	line = NULL;
-	while ("zbi")
+	while ("mghrib 2 - 0 jblika")
 	{
 		line = readline("> ");
 		if (!line || !ft_strncmp(line, eof, ft_strlen(eof) + 1))
@@ -49,11 +49,11 @@ int	ft_heredoc(char *eof)
 	if (pid < 0)
 		return (-1);
 	signal(SIGINT, SIG_IGN);
-	if (!pid)
+	if (pid == 0)
 		ft_doc_child(eof, hfd);
-	close(hfd[1]);
+	close(hfd[WRITE_END]);
 	waitpid(pid, &status, 0);
 	if (status == 2)
 		return (-1);
-	return (hfd[0]);
+	return (hfd[READ_END]);
 }

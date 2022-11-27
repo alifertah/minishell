@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_prompt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:07:26 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/17 03:57:34 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:57:51 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_reset(t_state *state)
 
 void	ft_prompt(t_state *state)
 {
-	while ("zbi")
+	while (69)
 	{
 		signal(SIGINT, ft_handle_sigint_parent);
 		signal(SIGQUIT, SIG_IGN);
