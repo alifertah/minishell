@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:23:13 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 15:39:45 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:28:13 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,9 @@ void	ft_print_nl(t_cmd *cmd)
 	while (cmd->args[i])
 	{
 		printf("%s ", cmd->args[i]);
-		if (!cmd->args[i + 1])
-		{
-			printf("\n");
-		}
 		i++;
 	}
+	printf("\n");
 }
 
 void	ft_echo(t_state *state, t_cmd *current_cmd)
@@ -61,23 +58,12 @@ void	ft_echo(t_state *state, t_cmd *current_cmd)
 
 	i = 1;
 	if (current_cmd->num_of_args == 1)
-	{
 		printf("\n");
-		state->status = 0;
-	}
 	if (current_cmd->num_of_args >= 2)
 	{
-		if (current_cmd->args[i][0] == '-')
-		{
-			while (current_cmd->args[i])
-			{
-				if (find_only(current_cmd->args[i]))
-					break ;
-				i++;
-			}
-			if (current_cmd->args[i])
-				ft_print(current_cmd->args, i);
-		}
+		if (current_cmd->args[1] && current_cmd->args[1][0] == '-'
+			&& !find_only(current_cmd->args[1] + 1))
+			ft_print(current_cmd->args, 2);
 		else
 			ft_print_nl(current_cmd);
 	}
