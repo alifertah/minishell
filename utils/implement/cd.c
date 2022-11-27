@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:24:23 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 15:41:49 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:29:44 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ void	ft_chdir_home(t_state *state)
 	char	*tmp;
 
 	tmp = ft_strdup(state->pwd);
+	if (!state->home || !state->home->value)
+	{
+		put_error("cd", "HOME not set.\n");
+		state->status = 1;
+		return ;
+	}
 	if (chdir(state->home->value) == -1)
 		put_error("cd", "HOME not set\n");
 	else

@@ -6,7 +6,7 @@
 /*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 15:02:20 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:40:21 by alfertah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define OUT_OF_MEM 12
 
 # include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <errno.h>
@@ -154,7 +154,7 @@ char			*ft_token_to_str(char *tokenized_str);
 char			*ft_put_exitcode(t_state *state, char *str);
 char			*ft_expand_str(t_state *state, char *old_str);
 char			*ft_add_expanded_env(t_state *state, char *new_str,
-						char *old_str, unsigned int *i);
+					char *old_str, unsigned int *i);
 char			*ft_get_next_token(char *str, char *tmp, unsigned int *i);
 char			ft_token_to_char(char token);
 int				ft_token(char *line);
