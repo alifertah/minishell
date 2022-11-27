@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:39:52 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/27 17:50:25 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:43:06 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define WRITE_END 1
 #define READ_END  0
 
-static void	ft_doc_child(char *eof, int hfd[2])
+static void	ft_doc_child(t_state *state, char *eof, int hfd[2])
 {
 	char	*line;
 
@@ -24,6 +24,8 @@ static void	ft_doc_child(char *eof, int hfd[2])
 	while ("mghrib 2 - 0 jblika")
 	{
 		line = readline("> ");
+		if (line && ft_strchr(line, '$'))
+			line = ft_update_line(state, line);
 		if (!line || !ft_strncmp(line, eof, ft_strlen(eof) + 1))
 			break ;
 		write(hfd[WRITE_END], line, ft_strlen(line));
@@ -31,13 +33,12 @@ static void	ft_doc_child(char *eof, int hfd[2])
 		free(line);
 		line = NULL;
 	}
-	if (line)
-		free(line);
+	free(line);
 	close(hfd[WRITE_END]);
 	exit(0);
 }
 
-int	ft_heredoc(char *eof)
+int	ft_heredoc(t_state *state, char *eof)
 {
 	int	hfd[2];
 	int	status;
@@ -50,7 +51,7 @@ int	ft_heredoc(char *eof)
 		return (-1);
 	signal(SIGINT, SIG_IGN);
 	if (pid == 0)
-		ft_doc_child(eof, hfd);
+		ft_doc_child(state, eof, hfd);
 	close(hfd[WRITE_END]);
 	waitpid(pid, &status, 0);
 	if (status == 2)

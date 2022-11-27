@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+         #
+#    By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 09:24:43 by olabrahm          #+#    #+#              #
-#    Updated: 2022/11/25 18:36:47 by alfertah         ###   ########.fr        #
+#    Updated: 2022/11/27 18:17:31 by olabrahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FILES= 	src/main utils/exits/ft_free_exit src/ft_prompt src/ft_execute utils/imp
 		utils/env/ft_get_name utils/env/ft_default_env utils/env/ft_update_env utils/execution/ft_free_setup \
 		utils/parsing/ft_put_exitcode utils/parsing/ft_wildcard utils/parsing/ft_empty_line utils/args/ft_args2 \
 		utils/parsing/ft_token2 utils/parsing/ft_check_token utils/parsing/ft_parse_tree2 utils/parsing/ft_check_tokens2 \
-		utils/parsing/ft_add_splitted utils/implement/ft_put_cderror
+		utils/parsing/ft_add_splitted utils/implement/ft_put_cderror utils/parsing/ft_update_line
 
 OBJS= $(FILES:=.o)
 NAME= minishell

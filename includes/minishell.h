@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:24:08 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/25 15:02:20 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:31:47 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,13 +156,14 @@ char			*ft_expand_str(t_state *state, char *old_str);
 char			*ft_add_expanded_env(t_state *state, char *new_str,
 						char *old_str, unsigned int *i);
 char			*ft_get_next_token(char *str, char *tmp, unsigned int *i);
+char			*ft_update_line(t_state *state, char *line);
 char			ft_token_to_char(char token);
 int				ft_token(char *line);
 int				ft_istoken(char c);
 int				ft_contains_token(char *str);
 int				ft_check_syntax(t_state *state, char **cmd, char *line);
 int				ft_get_token(char *str);
-int				ft_heredoc(char *eof);
+int				ft_heredoc(t_state *state, char *eof);
 int				ft_is_wildcard(char *str);
 int				ft_str_istoken(char *str);
 int				ft_is_literal_wildcard(char *str);

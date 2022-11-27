@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:40:17 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/03/14 20:04:39 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:42:13 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_lowerstr(char *str);
+
+char	*ft_strjoin_char(char *str, char c);
 
 #endif
