@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_tree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:48:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/27 18:31:40 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:29:23 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,13 @@ void	ft_notkn_outcmd(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 		return ;
 	}
 	(nodes->current_node)->name = ft_strdup(ft_lowerstr(cmd[iters->i]));
-	if (!(nodes->current_node)->name)
-	{
-		iters->stop_tree = 1;
-		return ;
-	}
 	(nodes->current_node)->num_of_args = 1;
 	(nodes->current_node)->args = ft_init_args(cmd[iters->i]);
 	(nodes->current_node)->file = NULL;
 	(nodes->current_node)->eof = NULL;
 	(nodes->current_node)->fd = 0;
 	(nodes->current_node)->token = 0;
+	(nodes->current_node)->execute = 1;
 	(nodes->current_node)->next = NULL;
 	nodes->last_cmd = (nodes->current_node);
 	iters->inside_cmd = 1;
@@ -109,6 +105,7 @@ void	ft_parse_token(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 	(nodes->current_node)->next = NULL;
 	(nodes->current_node)->file = NULL;
 	(nodes->current_node)->eof = NULL;
+	(nodes->current_node)->execute = 1;
 	(nodes->current_node)->fd = 0;
 	(nodes->current_node)->token = ft_str_istoken(cmd[iters->i]);
 	iters->file[0] = 0;

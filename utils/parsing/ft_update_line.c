@@ -1,4 +1,4 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_update_line.c                                   :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:14:43 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/27 18:22:20 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:04:05 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,26 @@ static char	*ft_get_env_name(char *line, int i)
 	return (env_name);
 }
 
+static char	*ft_add_env_name(t_state *state, char *line, char *output, int *i)
+{
+	char		*name;
+	t_env_var	*env;
+
+	name = ft_get_env_name(line, *i + 1);
+	env = ft_get_env(&state->env, name);
+	if (!name[0])
+		output = ft_strjoin(output, "$");
+	else if (env)
+		output = ft_strjoin(output, env->value);
+	else
+		output = ft_strjoin(output, "");
+	*i += ft_strlen(name);
+	free(name);
+	return (output);
+}
+
 static char	*ft_replace_env(t_state *state, char *line)
 {
-	t_env_var	*env;
 	char		*name;
 	char		*output;
 	int			i;
@@ -65,16 +82,7 @@ static char	*ft_replace_env(t_state *state, char *line)
 	while (line[i])
 	{
 		if (line[i] == ENV_SIGN)
-		{
-			name = ft_get_env_name(line, i + 1);
-			env = ft_get_env(&state->env, name);
-			if (env)
-				output = ft_strjoin(output, env->value);
-			else
-				output = ft_strjoin(output, "");
-			i += ft_strlen(name);
-			free(name);
-		}
+			output = ft_add_env_name(state, line, output, &i);
 		else if (line[i] == EXIT_STATUS)
 		{
 			name = ft_itoa(state->status);
@@ -100,6 +108,5 @@ char	*ft_update_line(t_state *state, char *line)
 	line = NULL;
 	ft_tokenize_dollar(new_line);
 	new_line = ft_replace_env(state, new_line);
-	printf("new_line: %s\n", new_line);
 	return (new_line);
 }

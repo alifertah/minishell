@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:03:07 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/12 16:16:46 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:19:30 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	init_pipes(t_state *state, t_cmd *current_node)
 	i = 0;
 	while (i < state->pipes + 1 && current_node)
 	{
+		if (current_node && !current_node->execute)
+		{
+			current_node = current_node->next;
+			continue ;
+		}
 		if (current_node->next == NULL)
 			state->sig = 1;
 		state->pids[i] = fork();

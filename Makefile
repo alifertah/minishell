@@ -6,13 +6,13 @@
 #    By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 09:24:43 by olabrahm          #+#    #+#              #
-#    Updated: 2022/11/27 18:17:31 by olabrahm         ###   ########.fr        #
+#    Updated: 2022/11/27 19:36:53 by olabrahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=cc
-FLAGS= -Wall -Wextra -Werror 
-# -fsanitize=address 
+FLAGS= -Wall -Wextra -Werror
+
 FILES= 	src/main utils/exits/ft_free_exit src/ft_prompt src/ft_execute utils/implement/cd \
 		utils/implement/echo utils/env/ft_env utils/env/ft_env_export utils/env/ft_env_unset \
 		utils/implement/pwd utils/env/ft_setup_env utils/env/ft_lstutils utils/env/ft_split_env utils/parsing/ft_clean_args \

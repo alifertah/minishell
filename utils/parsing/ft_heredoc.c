@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:39:52 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/27 18:43:06 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:57:46 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	ft_doc_child(t_state *state, char *eof, int hfd[2])
 	while ("mghrib 2 - 0 jblika")
 	{
 		line = readline("> ");
+		if (!line || !ft_strncmp(line, eof, ft_strlen(eof) + 1))
+			break ;
 		if (line && ft_strchr(line, '$'))
 			line = ft_update_line(state, line);
 		if (!line || !ft_strncmp(line, eof, ft_strlen(eof) + 1))

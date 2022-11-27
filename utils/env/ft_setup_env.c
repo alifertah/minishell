@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_setup_env.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:14:14 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/11/27 19:29:14 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:32:05 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,11 @@ t_env_var	*ft_setup_env(char **env)
 	i = 0;
 	if (!env || !env[i])
 		return (ft_default_env(NULL));
-	new_env = ft_split_env(env[i], '=');
-	if (!new_env)
-		return (NULL);
-	env_lst = ft_lstnew(new_env);
-	env_lst->index = i++;
 	while (env[i])
 	{
 		new_env = ft_split_env(env[i], '=');
+		if (!new_env)
+			exit (-1);
 		if (ft_strncmp(new_env[0], "OLDPWD", 7) != 0)
 		{
 			new_var = ft_lstnew(new_env);

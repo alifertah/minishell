@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_execution.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 00:26:47 by alfertah          #+#    #+#             */
-/*   Updated: 2022/11/17 03:52:38 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:26:36 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ static void	execute_line(t_state *state, t_cmd *cmd, t_cmd *sv)
 	t_cmd	*save;
 
 	save = sv;
+	if (cmd && !cmd->execute)
+	{
+		execute_line(state, cmd->next, save);
+		return ;
+	}
 	if (!cmd || cmd->token == PIPE)
 	{
 		if (!save)

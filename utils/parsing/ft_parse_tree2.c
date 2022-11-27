@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_tree2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfertah <alfertah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 21:18:09 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/10/12 18:57:28 by alfertah         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:14:47 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	ft_naf_helper(t_ptree_nodes *nodes, t_ptree_iters *iters, char **cmd)
 	if ((nodes->current_node)->fd == -1)
 	{
 		ft_put_errno(nodes->current_node->file);
-		iters->stop_tree = 1;
-		return ;
+		nodes->current_node->execute = 0;
+		nodes->last_cmd->execute = 0;
 	}
 }
 
